@@ -9,4 +9,12 @@ describe SecretDiary do
     diary = SecretDiary.new
     expect(subject.locked?).to eq true
   end
+
+  describe "#add_entry" do
+    it "doesn't allow the user to add_entry as locked" do
+      diary = SecretDiary.new
+      diary.locked?
+      expect{ diary.add_entry }.to raise_error "Sorry! Diary Locked"
+    end
+  end
 end

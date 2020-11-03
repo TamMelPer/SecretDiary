@@ -4,4 +4,7 @@ class SecretDiary
     true
   end
 
+  def add_entry
+
+  end
 end
