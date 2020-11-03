@@ -26,4 +26,12 @@ describe SecretDiary do
     end
   end
 
+  describe "#unlock" do
+    it "allows the user to unlock the diary and edit" do
+      diary = SecretDiary.new
+      diary.locked?
+      expect{ diary.unlock }.to change{ diary.locked? }.to false
+    end
+  end
+
 end
