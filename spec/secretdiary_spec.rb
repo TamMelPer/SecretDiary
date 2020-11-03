@@ -17,4 +17,13 @@ describe SecretDiary do
       expect{ diary.add_entry }.to raise_error "Sorry! Diary Locked"
     end
   end
+
+  describe "#get_entries" do
+    it "doesn't allow the user to get_entries as locked" do
+      diary = SecretDiary.new
+      diary.locked?
+      expect{ diary.get_entries }.to raise_error "Sorry! Diary Locked"
+    end
+  end
+
 end

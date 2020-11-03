@@ -7,4 +7,8 @@ class SecretDiary
   def add_entry
     fail "Sorry! Diary Locked" if locked? == true
   end
+
+  def get_entries
+    fail "Sorry! Diary Locked" if locked? == true
+  end
 end
