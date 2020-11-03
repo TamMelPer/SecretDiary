@@ -5,15 +5,16 @@ describe SecretDiary do
     expect(subject).to be_instance_of SecretDiary
   end
 
-  it "expects the Diary to be locked" do
+  it "initialized diary is locked" do
     diary = SecretDiary.new
-    expect(subject.locked?).to eq true
+    expect(diary.locked).to eq true
   end
+
 
   describe "#add_entry" do
     it "doesn't allow the user to add_entry as locked" do
       diary = SecretDiary.new
-      diary.locked?
+      diary.locked
       expect{ diary.add_entry }.to raise_error "Sorry! Diary Locked"
     end
   end
@@ -21,7 +22,7 @@ describe SecretDiary do
   describe "#get_entries" do
     it "doesn't allow the user to get_entries as locked" do
       diary = SecretDiary.new
-      diary.locked?
+      diary.locked
       expect{ diary.get_entries }.to raise_error "Sorry! Diary Locked"
     end
   end
@@ -29,8 +30,8 @@ describe SecretDiary do
   describe "#unlock" do
     it "allows the user to unlock the diary and edit" do
       diary = SecretDiary.new
-      diary.locked?
-      expect{ diary.unlock }.to change{ diary.locked? }.to false
+      diary.locked
+      expect{ diary.unlock }.to change{ diary.locked }.to false
     end
   end
 
